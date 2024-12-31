@@ -1,0 +1,59 @@
+<div class="container">
+    <form class="d-flex flex-column gap-3" [formGroup]="formularioControl">
+        <div class="form-floating">
+            <input type="email" 
+            class="form-control" 
+            placeholder="Correo" 
+            id="email" 
+            required
+            aria-describedby="validacionCorreo"
+            formControlName="correo"
+                [ngClass]="{
+                    'is-valid': (formularioControl.get('correo')?.touched && formularioControl.get('correo')?.valid),
+                    'is-invalid': (formularioControl.get('correo')?.touched && formularioControl.get('correo')?.invalid)
+                }"
+            >
+            <label for="email" class="form-label">Correo</label>
+            <!-- Validaciones del campo correo-->
+            <div class="valid-feedback">
+                Correo adecuado
+            </div>
+            <div id="validacionCorreo" class="invalid-feedback">
+                Correo inadecuado
+            </div>
+        </div>
+
+        <div class="position-relative">
+            <div class="input-group has-validation form-floating">
+                <input [type]="passwordVissible ? 'text':'password'"
+                class="form-control" 
+                placeholder="Contraseña" 
+                id="password" 
+                required 
+                aria-describedby="validacionContrasena"
+                formControlName="contrasena"
+                [ngClass]="{
+                    'is-valid': (formularioControl.get('contrasena')?.touched && formularioControl.get('contrasena')?.valid),
+                    'is-invalid': (formularioControl.get('contrasena')?.touched && formularioControl.get('contrasena')?.invalid)
+                }"
+                >
+                <a href="#" class="input-group-text fs-3 pe-auto" (click)="cambiarEstado($event)">
+                    <i [ngClass]="passwordVissible ? 'bi bi-eye' : 'bi bi-eye-slash'"></i>
+                </a>
+                <label for="password" class="form-label">Contraseña</label>
+
+                <!-- Validaciones del campo correo-->
+                <div class="valid-feedback">
+                    Contraseña adecuada
+                </div>
+                <div id="validacioncontrasena" class="invalid-feedback">
+                    La contraseña debe tener minimo 8 caracteres
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary" [disabled]="!formularioControl.valid">Iniciar Sesión</button>
+        </div>
+    </form>
+</div>

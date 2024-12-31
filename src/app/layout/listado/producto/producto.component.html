@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card-header">
+        {{producto.nombre}}
+    </div>
+    <div class="card-body">
+        <p class="card-text">Precio <span>{{producto.precio | currency}}</span></p>
+        <div class="d-flex justify-content-end gap-3">
+            <button class="btn btn-info" [routerLink]="['/editar', this.llaveInput]">
+                Editar 
+                <i class="bi bi-pencil-square"></i>
+            </button>
+            <button class="btn btn-danger" (click)="eliminarProducto(this.llaveInput)">
+                <i class="bi bi-trash"></i>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<h2 class="text-center text-warning">{{estado}} producto</h2>
+
+<form class="container my-5 d-flex flex-column gap-4" [formGroup]="formulario" (ngSubmit)="OnSubmit()">
+    <div class="form-floating">
+        <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre">
+        <label class="floatingInput">Nombre</label>
+    </div>
+    <div class="form-floating">
+        <input type="number" class="form-control" placeholder="precio" formControlName="precio">
+        <label class="floatingInput">Precio</label>
+    </div>
+    <div class="d-flex justify-content-center gap-3">
+        <button type="button" class="btn btn-warning" [routerLink]="['/']">
+            Volver a inicio
+            <i class="bi bi-house-door-fill"></i>
+        </button>
+        <button class="btn btn-primary" type="submit" [disabled]="formulario.invalid">
+            {{estado}} producto
+            @if(estado === 'Crear'){
+                <i class="bi bi-cart-plus"></i>
+            } @else {
+                <i class="bi bi-pencil"></i>
+            }
+        </button>
+    </div>
+</form>
