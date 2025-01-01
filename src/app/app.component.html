@@ -1,4 +1,13 @@
 <h1 class="text-center text-primary my-4">{{titulo}}</h1>
 <div class="container">
+  <!-- Links para login y salir -->
+  <div class="text-center mb-3">
+    @if(!isAutenticado()){
+      <button type="button" [routerLink]="['/login']" class="btn btn-outline-primary">Login</button>
+    }@else {
+      <button type="button" class="btn btn-outline-danger" (click)="salir()">Salir</button>
+    }
+  </div>
+
   <router-outlet/>
 </div>

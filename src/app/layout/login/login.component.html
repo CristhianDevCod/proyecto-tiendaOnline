@@ -1,4 +1,5 @@
 <div class="container">
+    <h2 class="text-center mb-5">Iniciar sesion</h2>
     <form class="d-flex flex-column gap-3" [formGroup]="formularioControl">
         <div class="form-floating">
             <input type="email" 
@@ -47,13 +48,13 @@
                     Contraseña adecuada
                 </div>
                 <div id="validacioncontrasena" class="invalid-feedback">
-                    La contraseña debe tener minimo 8 caracteres
+                    La contraseña debe tener minimo 6 caracteres
                 </div>
             </div>
         </div>
 
         <div class="text-center">
-            <button type="submit" class="btn btn-primary" [disabled]="!formularioControl.valid">Iniciar Sesión</button>
+            <button type="submit" class="btn btn-primary px-5" [disabled]="!formularioControl.valid" (click)="login()">Iniciar Sesión</button>
         </div>
     </form>
 </div>
